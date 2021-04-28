@@ -18,4 +18,4 @@ Route::get('/', function () {
 // Route::get('generate', 'ShortLinkController@index');
 // Route::post('generate', 'ShortLinkController@store')->name('generate.shorten.link.post');
 
-// Route::get('{code}', 'ShortLinkController@shortenLink')->name('shorten.link');
+Route::get('{code}', 'ShortLinkController@shortenLink')->name('shorten.link');

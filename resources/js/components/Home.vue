@@ -56,9 +56,7 @@
         style="margin-top: 5vh"
       >
         <a-col :span="7" class="title">
-          <a-button type="dashed" @click="isSuccess = !isSuccess">
-            Voltar
-          </a-button>
+          <a-button type="dashed" @click="backHome()"> Voltar </a-button>
         </a-col>
       </a-row>
     </div>
@@ -97,6 +95,10 @@ export default {
     };
   },
   methods: {
+    backHome() {
+      this.isSuccess = !this.isSuccess;
+      this.$refs.ruleForm.resetFields();
+    },
     onCopy() {
       this.$copyText(this.result).then(
         function (e) {
