@@ -1,5 +1,5 @@
-## Generate Short URL in Laravel without Using Composer Package
+## Generate Short URL in Laravel + Vuejs
 
-![shorter link](https://itsolutionstuff.com/upload/laravel-short-url.png)
+![shorter link](https://raw.githubusercontent.com/rodrigocananea/shortener-laravel-vue/master/encurtador.png)
 
-You can follow step by step tutorial for Short URL Here: https://itsolutionstuff.com/post/how-to-create-url-shortener-using-laravelexample.html
+Fork base: https://itsolutionstuff.com/post/how-to-create-url-shortener-using-laravelexample.html
