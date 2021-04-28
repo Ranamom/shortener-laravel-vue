@@ -114,10 +114,11 @@ export default {
           axios
             .post("generate", { link: this.form.url })
             .then((res) => {
-              this.loading = false;
+              this.form.url = "";
               let { code } = res.data;
-              this.isSuccess = true;
               this.result = window.location.origin + "/" + code;
+              this.loading = false;
+              this.isSuccess = true;
             })
             .catch((err) => {
               this.loading = false;
