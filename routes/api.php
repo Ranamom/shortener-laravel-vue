@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('generate', 'ShortLinkController@index');
+Route::post('generate', 'ShortLinkController@store')->name('generate.post');
+
+Route::get('{code}', 'ShortLinkController@shortenLink')->name('shorten');
