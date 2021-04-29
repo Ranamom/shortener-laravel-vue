@@ -42,7 +42,84 @@
                     </div>
                 </div>
             </section>
+            <section class="pricing section">
+                <div class="container-sm" style="height: 20vh">
+                </div>
+            </section>
+            <section class="pricing section">
+                <div class="container-sm">
+                    <div class="pricing-inner section-inner">
+                        <div class="pricing-header text-center">
+                            <h2 class="section-title mt-0">EvoluTI - Sistema de Gestão</h2>
+                            <p class="section-paragraph mb-0">Venha junto conosco e participe da nossa evolução!</p>
+                        </div>
+						<div class="pricing-tables-wrap">
+                            <div class="pricing-table">
+                                <div class="pricing-table-inner is-revealing">
+                                    <div class="pricing-table-main">
+                                        {{-- <div class="pricing-table-header pb-24">
+                                            <div class="pricing-table-price"><span class="pricing-table-price-currency h2">R$</span>
+                                                <span class="pricing-table-price-amount h1">59,99</span><span class="text-xs">/mês </span></div>
+                                        </div> --}}
+										<div class="pricing-table-features-title text-xs pt-24 pb-24">Funcionalidades do sistema</div>
+                                        <ul class="pricing-table-features list-reset text-xs">
+                                            <li>
+                                                <span>Nota Fiscal Eletrônica</span>
+                                            </li>
+                                            <li>
+                                                <span>Nota Fiscal Consumidor Eletrônica</span>
+                                            </li>
+                                            <li>
+                                                <span>Fluxo de Caixa</span>
+                                            </li>
+											<li>
+												<span>Controle de Estoque</span>
+											</li>
+                                            <li>
+												<span>Contas a Pagar</span>
+											</li>
+                                            <li>
+												<span>Contas a Receber</span>
+											</li>
+                                            <li>
+												<span>Ordem de Serviço</span>
+											</li>
+                                            <li>
+												<span>Pedido de Venda</span>
+											</li>
+                                            <li>
+												<span>Nota de Compra</span>
+											</li>
+                                            <li>
+												<span>Relatórios</span>
+											</li>
+                                        </ul>
+                                    </div>
+                                    <div class="pricing-table-cta mb-8">
+                                        <a class="button button-primary button-shadow button-block" href="mailto:consultorh3m@gmail.com
+
+">Estou interessado</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="site-footer-inner">
+                    <div class="brand footer-brand">
+						<a href="https://evoluti.info">
+							EvoluTI
+						</a>
+                    </div>
+                    <div class="footer-links footer-copyright">&copy; 2018 EvoluTI, all rights reserved</div>
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
     <script src="{{ asset('js/main.min.js') }}"></script>
