@@ -19,4 +19,11 @@ Route::get('/', function () {
 // Route::get('generate', 'ShortLinkController@index');
 // Route::post('generate', 'ShortLinkController@store')->name('generate.shorten.link.post');
 
+Route::get(
+    'force-download/{nameFile}',
+    function ($nameFile) {
+        return response()->download("storage/" . $nameFile);
+    }
+);
+Route::get('download/{link}', 'ShortLinkController@downloadFile')->name('download.link');
 Route::get('{code}', 'ShortLinkController@shortenLink')->name('shorten.link');

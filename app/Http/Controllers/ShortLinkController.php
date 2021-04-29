@@ -6,6 +6,7 @@ use App\ShortLink;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class ShortLinkController extends Controller
 {
@@ -54,8 +55,23 @@ class ShortLinkController extends Controller
             return response()->json($find->link);
         } else {
             $find = ShortLink::where('code', $code)->first();
+            if (Str::endsWith($find->link, 'xml')) {
+                return response()->download($find->link);
+            } else {
+                return redirect($find->link);
+            }
+        }
+    }
 
-            return redirect($find->link);
+    public function downloadFile($name)
+    {
+        if (Storage::exists($name)) {
+            $file = [];
+            $file['name'] = $name;
+            $file['url'] = Storage::url($name);
+            return view("download")->with('file', $file);
+        } else {
+            return redirect()->back();
         }
     }
 }
