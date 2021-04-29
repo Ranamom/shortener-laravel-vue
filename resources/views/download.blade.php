@@ -21,7 +21,7 @@
 						<div class="hero-copy">
 	                        <h1 class="hero-title mt-0">Aqui está seu arquivo!</h1>
 	                        <p class="hero-paragraph">Escolha se deseja baixar o arquivo diretamente ou se precisa visualizar ele no navegador antes.</p>
-                            <p>Arquivo: {{ $file['name'] }}</p>
+                            <p class="hero-paragraph">{{ $file['name'] }}</p>
 	                        <div class="hero-cta"><a class="button button-primary" href="/force-download/{{ $file['name'] }}">Baixar</a><a class="button" href="{{ $file['url'] }}">Visualizar</a></div>
 						</div>
 						<div class="hero-figure anime-element">
