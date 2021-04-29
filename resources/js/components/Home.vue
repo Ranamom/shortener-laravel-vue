@@ -3,12 +3,11 @@
     <div class="content-link" v-show="!isSuccess">
       <a-row type="flex" justify="center" align="middle">
         <a-col :span="12" class="title">
-          <h1>Encurtador de links</h1>
-        </a-col>
-      </a-row>
-      <a-row type="flex" justify="center" align="middle">
-        <a-col :span="6">
-          <a-form-model ref="ruleForm" :model="form" :rules="rules">
+          <h1>Encurtar link</h1>
+        </a-col> </a-row
+      ><a-form-model ref="ruleForm" :model="form" :rules="rules">
+        <a-row type="flex" justify="center" align="middle">
+          <a-col :span="6">
             <a-form-model-item prop="url">
               <a-input-search
                 v-model="form.url"
@@ -22,17 +21,29 @@
                 </a-button>
               </a-input-search>
             </a-form-model-item>
-          </a-form-model>
-        </a-col>
-      </a-row>
+          </a-col>
+        </a-row>
+        <a-row
+          type="flex"
+          justify="center"
+          align="middle"
+          style="margin-top: 0.1vh"
+        >
+          <a-col :span="6" class="validate">
+            <a-form-model-item prop="validateAt">
+              <a-tooltip placement="right">
+                <template slot="title"> Validade do link em dias </template>
+                <a-input-number :min="1" :max="7" v-model="form.validateAt" />
+              </a-tooltip>
+            </a-form-model-item>
+          </a-col>
+        </a-row>
+      </a-form-model>
     </div>
     <div class="content-link" v-show="isSuccess">
       <a-row type="flex" justify="center" align="middle">
         <a-col :span="12" class="title">
-          <h1>
-            Seu link foi encurtado
-            <a-icon type="smile" theme="twoTone"></a-icon>
-          </h1>
+          <h1>Tudo certo! <a-icon type="smile" theme="twoTone"></a-icon></h1>
         </a-col>
       </a-row>
       <a-row type="flex" justify="center" align="middle">
@@ -41,7 +52,12 @@
             v-model="this.result"
             size="large"
             @search="onCopy()"
-            :readonly="true"
+            style="
+              color: #a4f3df !important;
+              background-color: #282d44 !important;
+              cursor: not-allowed;
+              opacity: 1;
+            "
           >
             <a-button class="ant-btn-success" slot="enterButton">
               Copiar
@@ -53,9 +69,9 @@
         type="flex"
         justify="center"
         align="middle"
-        style="margin-top: 5vh"
+        style="margin-top: 3vh"
       >
-        <a-col :span="7" class="title">
+        <a-col :span="5" class="title">
           <a-button type="dashed" @click="backHome()"> Voltar </a-button>
         </a-col>
       </a-row>
@@ -70,10 +86,8 @@ import { message } from "ant-design-vue";
 export default {
   data() {
     let checkURL = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("Obrigatório preenchimento da URL!"));
-      } else if (!isURL(value)) {
-        callback(new Error("Informa uma URL valida!"));
+      if (value !== "" && !isURL(value)) {
+        callback(new Error("Informe uma URL valida!"));
       } else {
         callback();
       }
@@ -84,6 +98,7 @@ export default {
       isSuccess: false,
       form: {
         url: "",
+        validateAt: 2,
       },
       rules: {
         url: [{ validator: checkURL, trigger: "blur" }],
@@ -95,6 +110,14 @@ export default {
     };
   },
   methods: {
+    getCurrentStyle(current, today) {
+      const style = {};
+      if (current.date() === 1) {
+        style.border = "1px solid #1890ff";
+        style.borderRadius = "50%";
+      }
+      return style;
+    },
     backHome() {
       this.isSuccess = !this.isSuccess;
       this.$refs.ruleForm.resetFields();
@@ -111,10 +134,13 @@ export default {
     },
     onSubmit(formName) {
       this.$refs[formName].validate((valid) => {
-        if (valid) {
+        if (valid && this.form.url !== "") {
           this.loading = true;
           axios
-            .post("generate", { link: this.form.url })
+            .post("generate", {
+              link: this.form.url,
+              validateAt: this.form.validateAt,
+            })
             .then((res) => {
               this.form.url = "";
               let { code } = res.data;

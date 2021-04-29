@@ -9,7 +9,9 @@ require('./bootstrap');
 import Vue from "vue";
 import App from "./components/App.vue";
 import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
+import 'ant-design-vue/lib/col/style/css';
+import 'ant-design-vue/lib/row/style/css';
+// import 'ant-design-vue/dist/antd.css';
 import router from "./router";
 import VueClipboard from 'vue-clipboard2'
 
