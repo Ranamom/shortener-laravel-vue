@@ -51,15 +51,10 @@ class ShortLinkController extends Controller
     {
         if (request()->is("api/*")) {
             $find = ShortLink::where('code', $code)->first();
-
             return response()->json($find->link);
         } else {
             $find = ShortLink::where('code', $code)->first();
-            if (Str::endsWith($find->link, 'xml')) {
-                return response()->download($find->link);
-            } else {
-                return redirect($find->link);
-            }
+            return redirect($find->link);
         }
     }
 
