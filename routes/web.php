@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // Route::get('generate', 'ShortLinkController@index');
 // Route::post('generate', 'ShortLinkController@store')->name('generate.shorten.link.post');
 

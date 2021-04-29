@@ -26,6 +26,8 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('links:delete')
             ->hourly();
+        $schedule->command('files:deleteOlds')
+            ->weekly();
     }
 
     /**

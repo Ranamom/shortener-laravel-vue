@@ -17,6 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('storage', function () {
+    collect(Storage::disk("public")->listContents("storage"))
+        ->each(function ($file) {
+            if ($file['timestamp'] < now()->subDays(10)->getTimestamp()) {
+                Storage::delete($file['path']);
+            }
+        });
+
+    return response()->json($storage);
+});
 
 Route::get('generate', 'ShortLinkController@index');
 Route::post('generate', 'ShortLinkController@store')->name('generate.post');
