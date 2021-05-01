@@ -96,9 +96,7 @@
                                         </ul>
                                     </div>
                                     <div class="pricing-table-cta mb-8">
-                                        <a class="button button-primary button-shadow button-block" href="mailto:consultorh3m@gmail.com
-
-">Estou interessado</a>
+                                        <a class="button button-primary button-shadow button-block" target="_blank" href="http://api.whatsapp.com/send?text=Ola,%0Aestou%20interessado%20no%20sistema%20EvoluTI&phone=555591194370">Estou interessado</a>
                                     </div>
                                 </div>
                             </div>
