@@ -55,7 +55,7 @@ class ShortLinkController extends Controller
         } else {
             $find = ShortLink::where('code', $code)->first();
             if (!empty($find)) {
-                return redirect()->route('errors.404');
+                return view('errors.404');
             } else {
                 return redirect($find->link);
             }
@@ -70,7 +70,7 @@ class ShortLinkController extends Controller
             $file['url'] = Storage::url($name);
             return view("download")->with('file', $file);
         } else {
-            return redirect()->back();
+            return view('errors.404');
         }
     }
 }
