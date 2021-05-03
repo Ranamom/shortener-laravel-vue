@@ -54,7 +54,11 @@ class ShortLinkController extends Controller
             return response()->json($find->link);
         } else {
             $find = ShortLink::where('code', $code)->first();
-            return redirect($find->link);
+            if (!empty($find)) {
+                return redirect()->route('errors.404');
+            } else {
+                return redirect($find->link);
+            }
         }
     }
 

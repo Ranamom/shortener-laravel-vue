@@ -1,5 +1,5 @@
 <!doctype html>
-<title>Site Maintenance</title>
+<title>Erro 404</title>
 <style>
   body { background: rgb(29, 29, 29); text-align: center; padding: 150px; }
   h1 { font-size: 50px; }
@@ -10,10 +10,11 @@
 </style>
 
 <article>
-    <h1>Oops!</h1>
+    <h1>Voltaremos em breve :)</h1>
     <div>
-        <p>Me parece que tentou abrir um link que não existe mais :( <br/>Solicite um novo link ou tente entrar em contato
-            <a href="mailto:rodrigo@evoluti.info">contato conosco</a>.</p>
+        <p>Desculpe o transtorno, mas estamos realizando uma manutenção no momento. Se precisar, você pode sempre entrar em
+            <a href="mailto:rodrigo@evoluti.info">contato conosco</a>,
+            caso contrário, estaremos online em breve!</p>
         <p>&mdash; EvoluTI</p>
     </div>
 </article>
