@@ -33,6 +33,9 @@ class ShortLinkController extends Controller
             'validateAt' => 'required'
         ]);
 
+        // dd($request->all());
+
+        $input = [];
         $input['link'] = $request->link;
         $input['validateAt'] = Carbon::now()->addDays($request->validateAt);
         $input['code'] = Str::random(6);

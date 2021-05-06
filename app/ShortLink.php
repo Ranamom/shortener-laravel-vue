@@ -14,4 +14,10 @@ class ShortLink extends Model
     protected $fillable = [
         'code', 'link', 'validateAt'
     ];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d',
+        'updated_at' => 'datetime:Y-m-d',
+        'validateAt' => 'datetime:Y-m-d h:i:s'
+    ];
 }
