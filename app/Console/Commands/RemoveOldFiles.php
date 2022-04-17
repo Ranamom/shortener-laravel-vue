@@ -38,11 +38,12 @@ class RemoveOldFiles extends Command
     public function handle()
     {
         $this->info("# Deletando arquivos antigos #");
-        collect(Storage::disk("public")->listContents("storage"))
+
+        collect(\Storage::disk("public")->allFiles())
             ->each(function ($file) {
-                if ($file['timestamp'] < now()->subDays(10)->getTimestamp()) {
-                    $this->info("Apagando: " + $file['path']);
-                    Storage::delete($file['path']);
+                if (\Storage::lastModified($file) < now()->subDays(10)->getTimestamp()) {
+                    $this->info("-> REMOVENDO ARQUIVO :: " . $file);
+                    \Storage::delete($file);
                 }
             });
         $this->info("# Processo finalizado #");
